@@ -42,10 +42,57 @@
   Successfully added PolicyKit!
 {% endif %}
 
+<head>
+  <link rel="apple-touch-icon" sizes="180x180" href={% static "policyengine/img/favicon_io/apple-touch-icon.png" %}>
+	<link rel="icon" type="image/png" sizes="32x32" href={% static "policyengine/img/favicon_io/favicon-32x32.png" %}>
+	<link rel="icon" type="image/png" sizes="16x16" href={% static "policyengine/img/favicon_io/favicon-16x16.png" %}>
+	<link rel="manifest" href={% static "policyengine/img/favicon_io/site.webmanifest" %}>
+	<link rel="icon" href={% static "policyengine/img/favicon_io/favicon.ico" %} type="image/x-icon">
+  
+  <link rel="icon" href={% static "policyengine/img/favicon_io/mg-favicon.ico" %} type="image/x-icon">
+  <title>{% block title %}Gateway / PolicyKit Sandbox{% endblock title %}</title>
+</head>
+
 <P>
-  <b>Connect PolicyKit to Slack</b>
-  <BR>
-  You must be an admin of the Slack to add PolicyKit to your workspace.<BR>
+  <div style="display:flex; text-align:center; justify-content:center; padding-bottom:20px"">
+    <img src={% static "policyengine/img/atom.svg" %} style="width:50px; margin:0 0.5em;">
+    <img src={% static "policyengine/img/logo.gif" %} style="width:55px; margin:0.5em 0;">
+  </div>
+  <P style="text-align: center;">
+    <b>Welcome to the Metagov Gateway / PolicyKit Sandbox</b>
+  </P>
+  <P style="text-align: justify; text-justify: inter-word;">
+    This sandbox is a platform-specific governance-authoring application built with <a href="https://policykit.org/">PolicyKit</a> that leverages <a href="https://gateway.metagov.org/">Metagov Gateway's</a> open-source API gateway.
+  </P>
+  <P style="text-align: justify; text-justify: inter-word;">
+    The sandbox gives online communities the ability to connect the platforms where their communities live with the tools and platforms where decision making happens.
+  </P>
+  <P style="text-align: justify; text-justify: inter-word;">
+    The sandbox currently supports governance authoring on Slack, Reddit, and Discourse. Discord support is in development. 
+  </P>
+  <P style="text-align: justify; text-justify: inter-word;">
+    The policies authored with PolicyKit are extended by Metagov Gateway, making it is possible to connect the platform-specific policies to other applications where decision making takes place, such as Loomio, SourceCred, and Open Collective.
+  </P>
+  <P style="text-align: justify; text-justify: inter-word;">
+    The gateway provides this extension through a standardized plugin architecture that facilitates connections between a community's platform-specific policies and these external applications.
+  </P>
+  <P style="text-align: justify; text-justify: inter-word;">
+    The sandbox currently requires communities to custom code policies for each base platform. See the <a href="https://policykit.readthedocs.io/en/latest/writing_policies.html">PolicKit documentation</a> for more information on how to write a policy, and the <a href="https://docs.metagov.org/en/latest/driver_tutorial.html">Metagov Gateway documentation</a> on how to extend those policies using the Gateway plugins. 
+  </P>
+  <P style="text-align: justify; text-justify: inter-word;">
+    Visit the <a href="https://github.com/policykit/policykit">PolicyKit GitHub</a> and <a href="https://policykit.readthedocs.io/en/latest/index.html">docs</a>, and the <a href="https://github.com/metagov/gateway">Metagov Gateway GitHub</a> and <a href="https://docs.metagov.org/en/latest/">docs</a> for more information on each respective piece of software driving this sandbox.
+  </P>
+</P>
+
+<BR>
+
+<P>
+  <P>
+    <b>Connect to Slack</b>
+  </P>
+  <P>
+    You must be an admin of the Slack to add PolicyKit to your workspace.
+  </P>
   <P>
     <a href="/authorize_platform?platform=slack&type=app">
       Install PolicyKit to Slack
@@ -62,39 +109,37 @@
 
 {% if reddit_client_id %}
 <P>
-<b>Connect PolicyKit to Reddit</b>
-<BR>
-
-Because Reddit doesn't grant permissions on a subreddit by subreddit basis, you should create a Reddit account and make that account a moderator
-with full permissions on your Reddit. Then, while logged in to that account, click below to grant PolicyKit permission to act on behalf of that account.
-
-
-<BR>
-
-
-<a href="https://www.reddit.com/api/v1/authorize?client_id={{reddit_client_id}}&response_type=code&state=policykit_reddit_mod_install&redirect_uri={{server_url}}%2Freddit%2Foauth&duration=permanent&scope=modcontributors,modmail,mysubreddits,modconfig,modflair,modothers,modtraffic,modself,modlog,modposts,modwiki,read,privatemessages,submit">
-	Install PolicyKit to Reddit
-</a>
-
-</P>
-
-<P>
-
-You must be a subscriber to the Subreddit first.
-<BR>
-<a href="https://www.reddit.com/api/v1/authorize?client_id={{reddit_client_id}}&response_type=code&state=policykit_reddit_user_login&redirect_uri={{server_url}}%2Freddit%2Foauth&duration=permanent&scope=edit,flair,identity,mysubreddits,read,submit,save,vote">
-	Sign in with Reddit
-</a>
-
+  <P>
+    <b>Connect to Reddit</b>
+  </P>
+  <P>
+    Because Reddit doesn't grant permissions on a subreddit by subreddit basis, you should create a Reddit account and make that account a moderator with full permissions on your Reddit. Then, while logged in to that account, click below to grant PolicyKit permission to act on behalf of that account.
+  </P>
+  <P>
+    <a href="https://www.reddit.com/api/v1/authorize?client_id={{reddit_client_id}}&response_type=code&state=policykit_reddit_mod_install&redirect_uri={{server_url}}%2Freddit%2Foauth&duration=permanent&scope=modcontributors,modmail,mysubreddits,modconfig,modflair,modothers,modtraffic,modself,modlog,modposts,modwiki,read,privatemessages,submit">
+      Install PolicyKit to Reddit
+    </a>
+  </P>
+  <P>
+    You must be a subscriber to the Subreddit first.
+  </P>
+  <P>
+    <a href="https://www.reddit.com/api/v1/authorize?client_id={{reddit_client_id}}&response_type=code&state=policykit_reddit_user_login&redirect_uri={{server_url}}%2Freddit%2Foauth&duration=permanent&scope=edit,flair,identity,mysubreddits,read,submit,save,vote">
+      Sign in with Reddit
+    </a>
+  </P>
 </P>
 {% endif %}
 
 <BR>
 
 <P>
-  <b>Connect PolicyKit to Discord</b>
-  <BR>
-  You must be an admin of the Discord to add PolicyKit to your server.<BR>
+  <P>
+    <b>Connect to Discord</b>
+  </P>
+  <P>
+    You must be an admin of the Discord to add PolicyKit to your server.
+  </P>
   <P>
     <a href="/authorize_platform?platform=discord&type=app">
       Install PolicyKit to Discord
@@ -105,26 +150,29 @@ You must be a subscriber to the Subreddit first.
       Sign in with Discord
     </a>
   </P>
+  <P style="color:red; font-size:0.8em">
+    Discord Plugin Under Construction
+  </P>
 </P>
 
 <BR>
 
 <P>
-<b>Connect PolicyKit to Discourse</b>
-
-<BR>
-You must be an admin of the Discourse to add PolicyKit to your community.<BR>
-
-<a href="../discourse/configure?state=policykit_discourse_mod_install">
-  Install PolicyKit to Discourse
-</a>
-</P>
-
-<P>
-
-<a href="../discourse/configure?state=policykit_discourse_user_login">
-  Sign in with Discourse
-</a>
-
+  <P>
+    <b>Connect to Discourse</b>
+  </P>
+  <P>
+    You must be an admin of the Discourse to add PolicyKit to your community.
+  </P>
+  <P>
+    <a href="../discourse/configure?state=policykit_discourse_mod_install">
+      Install PolicyKit to Discourse
+    </a>
+  </P>
+  <P>
+    <a href="../discourse/configure?state=policykit_discourse_user_login">
+      Sign in with Discourse
+    </a>
+  </P>
 </P>
 {% endblock %}

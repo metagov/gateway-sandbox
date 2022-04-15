@@ -1,3 +1,25 @@
+/* Global settings */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+
+:root {
+  --clr-light: #F8F8F8;
+  --clr-dark: #05162F;
+  --clr-primary1: #b4a2cf;
+  --clr-primary2: #41679E;
+  --clr-primary3: #A1BFEB;
+  --clr-secondary1: #F8E441;
+  --clr-secondary2: #FFEDBF;
+  --clr-accent: #FA6C32;
+  --font: 'Geogrotesque', 'Roboto Condensed', 'Roboto', 'Arial', sans-serif;
+}
+
+/* Typography */
 body {
   font-family: 'Karla', sans-serif;
   color: #464a4f;
@@ -8,8 +30,8 @@ body {
 
 h1, .header {
   font-family: 'Baloo Da 2', sans-serif;
-  letter-spacing: 5px;
-  font-size: 3.5em;
+  letter-spacing: 3px;
+  font-size: 2.1em;
   font-weight: 400;
   color: #000000;
 }
@@ -24,13 +46,13 @@ h2 {
 h3 {
   font-family: 'Baloo Da 2', sans-serif;
   letter-spacing: 3px;
-  font-size: 1.4em;
+  font-size: 1.1em;
   font-weight: 400;
 }
 
 h4 {
   font-family: 'Karla', sans-serif;
-  font-size: 1.2em;
+  font-size: 1.1em;
   font-weight: bold;
 }
 
@@ -45,12 +67,13 @@ h5 {
 
 h6 {
   font-family: 'Karla', sans-serif;
-  font-size: 0.95em;
+  font-size: 0.9em;
   font-weight: 400;
-  line-height: 1.65em;
+  line-height: 1.25em;
+  color:#000000;
 }
 
-
+/* Containers */
 .masthead {
   height: 100vh;
   background: linear-gradient(45deg, #8EC5FC, #E0C3FC);
@@ -67,7 +90,7 @@ h6 {
 }
 
 .ui.grid {
-  padding: 50px 100px 90px 100px;
+  padding: 50px 80px 80px 100px;
 }
 
 #main {
@@ -76,7 +99,7 @@ h6 {
 
 .main-left {
   padding-left: 100px;
-  padding-top: 40px;
+  padding-top: 15px;
   text-align: center;
 }
 
@@ -124,6 +147,7 @@ h6 {
   margin-right: 5px;
 }
 
+/* Link Styling */
 .underline-link {
   position: relative;
   transition: color 0.3s ease-in;
@@ -174,6 +198,7 @@ h6 {
   background: linear-gradient(to right, #f59799, #6566ae); /* Standard syntax */
 }
 
+/* Image Mods */
 svg.triangle {
   position: absolute;
   bottom: -20vh;
@@ -181,6 +206,11 @@ svg.triangle {
   height: 10vw;
 }
 
+.rounded-circle {
+	margin: 10px;
+}
+
+/* Footer */
 #footer {
   color: white;
   background: linear-gradient(45deg, #f59799, #6566ae);
@@ -203,6 +233,7 @@ svg.triangle {
   }
 }
 
+/* Signup Elements */
 #mc_embed_signup form {text-align:center; padding:10px 0 10px 0;}
 .mc-field-group { display: inline-block; } /* positions input field horizontally */
 
@@ -223,7 +254,25 @@ svg.triangle {
     #mc_embed_signup .button {width: 100%; margin:0; }
 }
 
-
-.rounded-circle {
-	margin: 10px;
+/* Buttons */
+.btn {
+  font-family: var(--font);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  margin: 0 0.5rem;
+  position: relative;
+  font-size: 1.25rem;
+  line-height: 2rem;
+  display: inline-block;
+  border: 1px solid var(--clr-dark);
+  border-radius: 3px;
+  box-shadow: 5px 5px 0 0 var(--clr-primary3); 
+  color: var(--clr-dark);
+  background-color: var(--clr-light);
+}
+.btn:hover {
+  color: var(--clr-light);
+  background-color: var(--clr-primary1);
+  cursor: pointer;
+  box-shadow: 2px 2px 0 0 var(--clr-dark); 
 }
