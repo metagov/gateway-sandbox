@@ -8,11 +8,11 @@
 
 
 :root {
-  --clr-light: #F8F8F8;
+  --clr-light: #bed2f1;
   --clr-dark: #05162F;
   --clr-primary1: #b4a2cf;
   --clr-primary2: #41679E;
-  --clr-primary3: #A1BFEB;
+  --clr-primary3: #90aad1;
   --clr-secondary1: #F8E441;
   --clr-secondary2: #FFEDBF;
   --clr-accent: #FA6C32;
@@ -258,11 +258,11 @@ svg.triangle {
 .btn {
   font-family: var(--font);
   text-decoration: none;
-  padding: 0.5rem 1rem;
-  margin: 0 0.5rem;
+  padding: 1.5rem 3.25rem;
+  margin: 25px 0.5rem;
   position: relative;
-  font-size: 1.25rem;
-  line-height: 2rem;
+  font-size: 2.25rem;
+  line-height: 1rem;
   display: inline-block;
   border: 1px solid var(--clr-dark);
   border-radius: 3px;
